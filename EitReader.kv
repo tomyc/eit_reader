@@ -1,0 +1,81 @@
+#:import MeshLinePlot kivy.garden.graph.MeshLinePlot
+Window:
+    BoxLayout:
+        canvas.before: 
+            Color: 
+                rgb: 1, 1, 1
+            Rectangle: 
+                pos: self.pos 
+                size: self.size 
+        orientation: "vertical"
+        BoxLayout:
+            size_hint: [1, .1]
+            padding:10
+            Label:
+                id: label1
+                color: [0, 0, 0, 0.7]
+                text: "Czekam..."
+                text_size: self.size
+                halign: 'left'
+                valign: 'middle'
+            Label:
+                id: label2
+                text: "Czas"
+                color: [0, 0, 0, 0.7]
+                text_size: self.size
+                halign: 'center'
+                valign: 'middle'
+            Button:
+                text: 'Konfiguracja'
+                on_release: app.open_settings()
+        BoxLayout:
+            #size_hint: [1, .8]
+            #Graph:
+            #   id: graph
+            #    xlabel: "Czas"
+            #    ylabel: "Poziom"
+            #    ymin: 0
+            #    ymax: 1
+            #    x_ticks_minor:5
+            #    x_ticks_major:10
+            #    y_ticks_minor:5
+            #    y_ticks_major:0.2
+            #    y_grid_label:True
+            #    x_grid_label:True
+            #    padding:10
+            #    xlog:False
+            #    ylog:False
+            #    x_grid:True
+            #    y_grid:True
+            #    xmax:200
+            size_hint: [1, .8]
+            orientation: "vertical"
+            canvas:
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            #AsyncImage:
+            Image:
+                id: image
+            #    source: 'http://lmsotfy.com/so.png'
+            #Label:
+            #    id: label_test
+            #    text: "Wykres"
+            #    text_size: self.size
+            #    halign: 'center'
+            #    valign: 'middle'
+
+
+        BoxLayout:
+            size_hint: [1, .1]
+            orientation: "horizontal"
+            Button:
+                id: btn_start
+                text: "START"
+                bold: True
+                on_press: root.start()
+            Button:
+                id: btn_stop
+                text: "STOP"
+                bold: True
+                on_press: root.stop()
